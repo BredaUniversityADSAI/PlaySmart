@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "Packages"
+version = "0.1.0"
+description = "Enhancing Performance for the Breda Guardians through Data Analytics"
+authors = [
+    "Imani-jamir Senior <ImaniJamirSenior225619@users.noreply.github.com>",
+    "Vincent van der Beek <112979795+VincentvanderBeek@users.noreply.github.com>",
+    "Mauro van Hulst <112879059+MaurovanHulst@users.noreply.github.com>",
+    "Maikel Boezer <112754865+MaikelBoezer220755@users.noreply.github.com>",
+    "Thomas Pichardo <ThomasPichardo223834@users.noreply.github.com>",
+    "Cédric Verhaegh <CedricVerhaegh221350@users.noreply.github.com>"
+]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+streamlit = { version = "^1.40.2", python = "!=3.9.7" }
+tobii-research = "2.0.0"
+matplotlib = "^3.7.2"
+pandas = "^2.1.0"
+numpy = "^1.24.0"
+tensorflow-io-gcs-filesystem = "0.27.0"
+opencv-python = "^4.5.5"
+scikit-learn = "^1.3.0"
+screeninfo = "^0.8.1"
+pynput = "^1.7.7"
+keyboard = "^0.13.5"
+nltk = "^3.9.1"
+torch = "^2.4.1"
+torchvision = "^0.19.1"
+torchaudio = "^2.4.1"
+openai-whisper = {git = "https://github.com/openai/whisper.git"}
+transformers = "^4.45.0"
+datasets = "^3.0.1"
+librosa = "^0.10.2.post1"
+soundfile = "^0.12.1"
+pygame = "^2.6.1"
+sqlalchemy = "^2.0.36"
+psycopg2-binary = "^2.9.10"
+paramiko = "^3.5.0"
+moviepy = "^2.1.1"
+mss = "^10.0.0"
+ultralytics = "^8.3.77"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+flake8 = "*"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
