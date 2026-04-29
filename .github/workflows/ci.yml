@@ -17,4 +17,3 @@ jobs:
       - run: pip install poetry
       - run: poetry install
       - run: poetry run ruff check .   # or flake8
-      # - run: poetry run pytest         # even if you have minimal tests
