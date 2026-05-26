@@ -28,6 +28,18 @@ poetry install
 ```
 This will create a `.venv` virtual environment folder inside the project directory.
 
+## Adding OpenFace to the project folder
+A planned future improvement will remove the need for OpenFace, but for now it is still required. The version used for this project is **2.2.0**.
+
+There are three ways to add it to the project folder:
+1. Copy it from a nearby machine where the Toolkit is already deployed using a USB stick.
+
+2. Send it to yourself via Discord or MS Teams.
+
+3. Download it from the [OpenFace GitHub releases page](https://github.com/TadasBaltrusaitis/OpenFace/releases).
+
+Once obtained, unzip OpenFace and place the folder inside the project directory.
+
 ## Starting the Toolkit
 1. Ensure your webcam and eye tracker are connected before launching.
 2. Run the toolkit by executing the main.bat file:
@@ -58,7 +70,7 @@ This will create a `.venv` virtual environment folder inside the project directo
 
 ---
 
-## Project Structure *(optional — fill in as needed)*
+## Project Structure
 ```
 project/
 ├── .venv/            # Virtual environment (auto-generated)
