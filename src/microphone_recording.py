@@ -10,8 +10,11 @@ channels = 1
 recording = True  # control flag
 
 # ------------------ PATH SETUP ------------------
-documents = os.path.expanduser("~/Documents")
-audio_folder = os.path.join(documents, "research_software", "data", "audio")
+# documents = os.path.expanduser("~/Documents")
+# audio_folder = os.path.join(documents, "research_software", "data", "audio")
+# os.makedirs(audio_folder, exist_ok=True)
+
+audio_folder = 'data/audio'
 os.makedirs(audio_folder, exist_ok=True)
 
 filename = f"audio_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.wav"
