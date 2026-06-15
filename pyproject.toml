@@ -55,4 +55,5 @@ ipykernel = "^6.29.5"
 exclude = [
     "src/infrared.ipynb",
     "src/riotAPI.ipynb"
+    "server/src"
 ]
