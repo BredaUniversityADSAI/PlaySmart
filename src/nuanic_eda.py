@@ -4,8 +4,6 @@ import struct
 import csv
 import time
 import os
-import sys
-import signal
 import threading
 import keyboard
 from datetime import datetime
@@ -71,7 +69,7 @@ def on_dne(sender, data: bytearray):
         dne_buffer["dne"] = dne
         dne_buffer["instant"] = instant
     except Exception as e:
-        print(" DNE parse error:{e}")
+        print(f" DNE parse error:{e}")
 
 
 def save_eda_data():

@@ -64,7 +64,7 @@ def gaze_data_callback(gaze_data):
 # Start OpenFace FeatureExtraction
 command = [
     openface_executable,
-    '-device', '0',
+    '-device', '1',
     '-out_dir', output_dir,
     '-aus'
 ]
@@ -232,12 +232,22 @@ try:
             break
 finally:
     process.terminate()
+    process.wait()
     my_eyetracker.unsubscribe_from(tr.EYETRACKER_GAZE_DATA, gaze_data_callback)
     pygame.quit()
+
     dir_path = 'output'
     for filename in os.listdir(dir_path):
         file_path = os.path.join(dir_path, filename)
-        os.remove(file_path) 
-        print(f"Deleted file: {filename}")
-    os.rmdir(dir_path)  
+        for attempt in range(10):
+            try:
+                os.remove(file_path)
+                print(f"Deleted file: {filename}")
+                break
+            except PermissionError:
+                time.sleep(0.5)
+        else:
+            print(f"Could not delete {filename} after retries - still in use")
+
+    os.rmdir(dir_path)
     print("Gaze and emotion overlay visualization stopped.")
