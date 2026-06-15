@@ -1,1 +1,5 @@
 /obs settings/Mouse_Keyboard
+/OpenFace_2.2.0_win_x64
+/data
+/src/__pycache__
+*.pyc
