@@ -50,3 +50,9 @@ bleak = ">=0.17,<0.20"
 pytest = "*"
 flake8 = "*"
 ipykernel = "^6.29.5"
+
+[tool.ruff]
+exclude = [
+    "src/infrared.ipynb",
+    "src/riotAPI.ipynb"
+]
