@@ -43,11 +43,17 @@ moviepy = "^2.1.1"
 mss = "^10.0.0"
 ultralytics = "^8.3.77"
 sounddevice = "^0.5.5"
-bleak = "<0.20"
+bleak = ">=0.17,<0.20"
 
-[tool.poetry.dev-dependencies]
-pytest = "*"
-flake8 = "*"
 
 [tool.poetry.group.dev.dependencies]
+pytest = "*"
+flake8 = "*"
 ipykernel = "^6.29.5"
+
+[tool.ruff]
+exclude = [
+    "src/infrared.ipynb",
+    "src/riotAPI.ipynb"
+    "server/src"
+]
