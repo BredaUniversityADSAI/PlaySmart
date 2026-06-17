@@ -1,10 +1,14 @@
 # Toolkit Setup Guide
 
 ## Prerequisites
+
 Before getting started, make sure you have the following installed and available on your system:
 
-- Python (3.9 or 3.10 is recommended)
-- Poetry (dependency manager)
+- Python (3.9 or 3.10 is recommended) - https://www.python.org/downloads/release/python-3100/
+- Poetry (dependency manager) - pip install poetry
+- OBS - https://obsproject.com/download
+  - For setting up refer to C:\\...\GitHub\PlaySmart\obs settings\readme.md
+- Tobii Eye Tracker Manager Pro - https://www.tobii.com/products/software/applications-and-developer-kits/tobii-pro-eye-tracker-manager#downloads%22
 - A connected webcam
 - A connected Tobii eye tracker
 - ffmpeg
@@ -65,14 +69,15 @@ There are three ways to add it to the project folder:
 
 2. Send it to yourself via Discord or MS Teams.
 
-3. Download it from the [OpenFace GitHub releases page](https://github.com/TadasBaltrusaitis/OpenFace/releases).
+3. Download it from [PlaySmart google account google drive](https://drive.google.com/drive/u/1/my-drive).
 
 Once obtained, unzip OpenFace and place the folder inside the project directory.
 
 ## Starting the Toolkit
 
 1. Ensure your webcam and eye tracker are connected before launching.
-2. Run the toolkit by executing the main.bat file:
+2. Tobii Eye Tracker Manager Pro and OBS are running with correct settings
+3. Run the toolkit by executing the main.bat file:
 
  `main.bat` Or double-click it in File Explorer.
 
@@ -80,10 +85,10 @@ Once obtained, unzip OpenFace and place the folder inside the project directory.
 
 ## Controls
 
-| Key | Action |
-|-----|--------|
-| `F7` | Start recording |
-| `F12` | Stop recording |
+| Key     | Action          |
+| ------- | --------------- |
+| `F7`  | Start recording |
+| `F12` | Stop recording  |
 
 ---
 
