@@ -28,6 +28,10 @@ def main():
             processes.append(subprocess.Popen(["poetry", "run", "python", "src/eye_tracking_script.py"]))
             processes.append(subprocess.Popen(["poetry", "run", "python", "src/Emotion_gaze_visualization.py"]))
             processes.append(subprocess.Popen(["poetry", "run", "python", "src/keyboard_recording.py"]))
+            processes.append(subprocess.Popen(["poetry", "run", "python", "src/microphone_recording.py"]))
+
+            time.sleep(2)
+            processes.append(subprocess.Popen(["poetry", "run", "python", "src/nuanic_eda.py"]))
 
             print("Waiting for F12 to stop and upload data...")
             keyboard.wait('f12')

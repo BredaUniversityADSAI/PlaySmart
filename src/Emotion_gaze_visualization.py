@@ -136,7 +136,7 @@ def save_emotion_data():
 
     if 'timestamp' in df.columns:
         df['unix_time'] = df['timestamp'].apply(lambda x: int(start_unix_time + x * 1000))
-        df['datetime'] = df['unix_time'].apply(lambda x: datetime.fromtimestamp(x / 1000.0))
+        df['datetime'] = df['unix_time'].apply(lambda  x: datetime.fromtimestamp(x / 1000.0))
     else:
         print("Warning: 'timestamp' column not found in emotion data. UNIX time not assigned.")
         df['unix_time'] = None
@@ -205,7 +205,7 @@ try:
         pygame.draw.circle(window, (255, 255, 255), (int(smoothed_x), int(smoothed_y)), circle_radius, outline_thickness)
 
         # Draw colored rectangle around the detected emotion
-        rect_color = emotion_colors.get(emotion, (255, 0, 0))  
+        rect_color = emotion_colors.get(emotion, (255, 255, 255))  
         pygame.draw.rect(window, rect_color, (10, 1400, 280, 32), 0)  
         font = pygame.font.SysFont('Arial', 30)
         text_surface = font.render(f'Emotion: {emotion}', True, (0, 0, 0)) 
@@ -232,13 +232,22 @@ try:
             break
 finally:
     process.terminate()
+    process.wait()
     my_eyetracker.unsubscribe_from(tr.EYETRACKER_GAZE_DATA, gaze_data_callback)
     pygame.quit()
+
     dir_path = 'output'
     for filename in os.listdir(dir_path):
         file_path = os.path.join(dir_path, filename)
-        time.sleep(1) # time pause to ensure all file operations are completed
-        os.remove(file_path) 
-        print(f"Deleted file: {filename}")
-    os.rmdir(dir_path)  
+        for attempt in range(10):
+            try:
+                os.remove(file_path)
+                print(f"Deleted file: {filename}")
+                break
+            except PermissionError:
+                time.sleep(0.5)
+        else:
+            print(f"Could not delete {filename} after retries - still in use")
+
+    os.rmdir(dir_path)
     print("Gaze and emotion overlay visualization stopped.")
