@@ -1,6 +1,6 @@
 # OBS Input Overlay Setup Guide
 
-> **Show your mouse and keyboard inputs live on screen while recording in OBS.**  
+> **Show your mouse and keyboard inputs live on screen while recording in OBS.**
 > Based on this [YouTube tutorial](https://www.youtube.com/watch?v=JNNqm3a2oZQ).
 
 ---
@@ -36,12 +36,12 @@
 
 Navigate back to the downloaded presets folder. Pick what fits your use case:
 
-| Use Case | Preset to Extract |
-|---|---|
-| Controller (gamepad) | `gamepad` |
-| Mouse only | `mouse` |
-| WASD keys only | `WD` (WASD preset) |
-| Full keyboard | `Cordy` |
+| Use Case             | Preset to Extract    |
+| -------------------- | -------------------- |
+| Controller (gamepad) | `gamepad`          |
+| Mouse only           | `mouse`            |
+| WASD keys only       | `WD` (WASD preset) |
+| Full keyboard        | `Cordy`            |
 
 > **Tip:** You can mix and match — extract multiple presets if needed.
 
@@ -64,16 +64,26 @@ Once extracted, **drag everything into your new `overlays` folder**.
 
 ---
 
-## Step 6 — Position & Test
+## Step 6 — Configure OBS settings
+
+Adjust the video settings of OBS as such
+
+![OBS settings](VideoSettingsOBS.png)
+
+Note: Also remember to do the hotkeys for starting and stopping the recording!
+
+---
+
+## Step 7 — Position & Test
 
 - **Drag** the overlay to wherever you want it to appear on screen during recording.
 - Click around — you should see the overlay **react in real time** to your inputs! ✅
 
 ---
 
-## Step 7 — Add keyboard overlay
+## Step 8 — Add keyboard overlay
 
-Repeat **Step 5** for any additional overlays you want. 
+Repeat **Step 5** for any additional overlays you want.
 
 For **Valorant** the WASD overlay is recommended.
 For **League of Legends** the full keyboard overly is recommended
@@ -85,5 +95,6 @@ For **League of Legends** the full keyboard overly is recommended
 5. Position it on screen.
 
 ---
+
 > [!NOTE]
 > If the readme is unclear or it is not workon try following the YouTube tutorial [here](https://www.youtube.com/watch?v=JNNqm3a2oZQ)

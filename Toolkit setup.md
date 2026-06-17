@@ -1,36 +1,46 @@
 # Toolkit Setup Guide
 
 ## Prerequisites
+
 Before getting started, make sure you have the following installed and available on your system:
 
-- Python (3.9 or 3.10 is recommended)
-- Poetry (dependency manager)
+- Python (3.9 or 3.10 is recommended) - https://www.python.org/downloads/release/python-3100/
+- Poetry (dependency manager) - pip install poetry
+- OBS - https://obsproject.com/download
+  - For setting up refer to C:\\...\GitHub\PlaySmart\obs settings\readme.md
+- Tobii Eye Tracker Manager Pro - https://www.tobii.com/products/software/applications-and-developer-kits/tobii-pro-eye-tracker-manager#downloads%22
 - A connected webcam
-- A connected Tobii eye tracker 
+- A connected Tobii eye tracker
 
 ## Setting Up the Poetry Environment
 
-
 1. Verify that Poetry is installed by running:
+
 ```bash
 poetry --version
 ```
+
 If this command is not found, follow the Poetry installation guide.
 
 2. Open a terminal and navigate to the project folder containing the `pyproject.toml` and `poetry.lock` files:
+
 ```bash
 cd path/to/project
 ```
 
 3. Install the project dependencies:
+
 ```bash
 poetry install
 ```
+
 This will create a `.venv` virtual environment folder inside the project directory.
 
 ## Starting the Toolkit
+
 1. Ensure your webcam and eye tracker are connected before launching.
-2. Run the toolkit by executing the main.bat file:
+2. Tobii Eye Tracker Manager Pro and OBS are running with correct settings
+3. Run the toolkit by executing the main.bat file:
 
  `main.bat` Or double-click it in File Explorer.
 
@@ -38,10 +48,10 @@ This will create a `.venv` virtual environment folder inside the project directo
 
 ## Controls
 
-| Key | Action |
-|-----|--------|
-| `F7` | Start recording |
-| `F12` | Stop recording |
+| Key     | Action          |
+| ------- | --------------- |
+| `F7`  | Start recording |
+| `F12` | Stop recording  |
 
 ---
 
@@ -59,6 +69,7 @@ This will create a `.venv` virtual environment folder inside the project directo
 ---
 
 ## Project Structure *(optional — fill in as needed)*
+
 ```
 project/
 ├── .venv/            # Virtual environment (auto-generated)
@@ -85,9 +96,3 @@ project/
 ├── poetry.lock       # Locked dependency versions
 └── pyproject.toml    # Poetry project configuration
 ```
-
-
-
-
-
-
