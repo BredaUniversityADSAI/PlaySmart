@@ -105,7 +105,34 @@ def upload_newest_file(folder_path, dest_directory):
             time.sleep(2)
 
 
-def main():
+# ------------------ Session Context ------------------
+
+SESSION_CONTEXT_FILE = 'data/json/session_context.json'
+
+
+def save_session_context(context, context_file=SESSION_CONTEXT_FILE):
+    os.makedirs(os.path.dirname(context_file), exist_ok=True)
+    with open(context_file, 'w') as file:
+        json.dump(context, file, indent=4)
+
+
+def load_session_context(context_file=SESSION_CONTEXT_FILE):
+    if os.path.exists(context_file):
+        with open(context_file, 'r') as file:
+            return json.load(file)
+    return None
+
+
+def clear_session_context(context_file=SESSION_CONTEXT_FILE):
+    if os.path.exists(context_file):
+        os.remove(context_file)
+
+
+# ------------------ Mode: Collect Input (F7) ------------------
+
+def collect_input():
+    """Show the pop-up, gather name/game, and persist to session_context.json.
+    Does NOT touch or upload any files."""
 
     class DualInputDialog(simpledialog.Dialog):
         def body(self, master):
@@ -127,7 +154,6 @@ def main():
             self.player_name = self.player.get().strip()
             self.game_name = self.game.get().strip().lower()
 
-    # ---------------- INPUT ----------------
     root = tk.Tk()
     root.withdraw()
 
@@ -137,7 +163,34 @@ def main():
 
     if not player_name or not game_name:
         print("Invalid input")
-        return
+        return 1
+
+    save_session_context({
+        "player_name": player_name,
+        "game_name": game_name,
+        "timestamp": datetime.datetime.now().isoformat(),
+    })
+    print("Session context saved.")
+    return 0
+
+
+# ------------------ Mode: Process & Upload (F12) ------------------
+
+def process_and_upload():
+    """Read the stored session context, rename the session's files, and upload.
+    No pop-up is shown."""
+
+    context = load_session_context()
+    if not context:
+        print("No session context found. Did the F7 pop-up run?")
+        return 1
+
+    player_name = context.get("player_name")
+    game_name = context.get("game_name")
+
+    if not player_name or not game_name:
+        print("Invalid session context")
+        return 1
 
     # ---------------- PLAYER ----------------
     mapping = load_mapping()
@@ -161,7 +214,7 @@ def main():
         "data/input": "input",
         "data/gaze": "gaze",
         "data/emotion": "emotion",
-        "data/eda" : "eda",
+        "data/eda": "eda",
     }.items():
 
         latest = get_latest_file(folder)
@@ -210,6 +263,23 @@ def main():
             full = os.path.join(audio_folder, f)
             if os.path.isfile(full):
                 upload_file_to_sftp(full, "/data/audio/")
+
+    # Clean up so stale context isn't reused next session
+    clear_session_context()
+    return 0
+
+
+def main():
+    # Default to "input" mode if no argument is given
+    mode = sys.argv[1] if len(sys.argv) > 1 else "input"
+
+    if mode == "input":
+        sys.exit(collect_input())
+    elif mode == "upload":
+        sys.exit(process_and_upload())
+    else:
+        print(f"Unknown mode: {mode}. Use 'input' or 'upload'.")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

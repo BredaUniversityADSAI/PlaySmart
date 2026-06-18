@@ -14,17 +14,32 @@ def main():
     """
     Handles script execution flow based on key presses (F7 to start, F12 to stop).
     Author: Thomas Pichardo, Mauro van Hulst, Maikel Boezer
-    Modified: Removes merging step, uploads data using pop_up_screen.py.
+    Modified: Pop-up (input only) shown on F7 before logging; data renamed and
+    uploaded on F12 via pop_up_screen.py upload mode.
     """
     while True:
         print("Waiting for F7 or F12... (Press F7 to start or F12 to stop)")
         keyboard.wait('f7')
 
-        print("F7 pressed, starting scripts...")
+        print("F7 pressed, showing pop-up for player input...")
         kill_openface()  # Optional: clear leftover OpenFace processes
         processes = []
         try:
+            # Show pop-up FIRST (input only, no file ops) so the user enters
+            # their in-game name before any logging scripts run
+            result = subprocess.run(["poetry", "run", "python", "src/pop_up_screen.py", "input"])
+            if result.returncode == 0:
+                print(" Player input captured!")
+            else:
+                print(" Input failed - aborting session.")
+                continue
+
+            # Delay so the pop-up has fully closed and no residual keystrokes
+            # (the in-game name) are captured before keyboard logging starts
+            time.sleep(2)
+
             # Start gaze, emotion, and input logging scripts
+            print("Starting logging scripts...")
             processes.append(subprocess.Popen(["poetry", "run", "python", "src/eye_tracking_script.py"]))
             processes.append(subprocess.Popen(["poetry", "run", "python", "src/Emotion_gaze_visualization.py"]))
             processes.append(subprocess.Popen(["poetry", "run", "python", "src/keyboard_recording.py"]))
@@ -43,10 +58,10 @@ def main():
 
             time.sleep(2)
 
-            print("Uploading latest data files via pop_up_screen.py...")
-            result = subprocess.run(["poetry", "run", "python", "src/pop_up_screen.py"])
+            print("Processing and uploading data via pop_up_screen.py...")
+            result = subprocess.run(["poetry", "run", "python", "src/pop_up_screen.py", "upload"])
             if result.returncode == 0:
-                print(" Upload successful and pop-up shown!")
+                print(" Upload successful!")
             else:
                 print(" Upload failed.")
         finally:
@@ -57,4 +72,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
