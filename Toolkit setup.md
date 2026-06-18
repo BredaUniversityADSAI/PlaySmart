@@ -4,7 +4,7 @@
 
 Before getting started, make sure you have the following installed and available on your system:
 
-- Python (3.9 or [3.10](https://www.python.org/downloads/release/python-3100/) is recommended) - 
+- Python (3.9 or [3.10](https://www.python.org/downloads/release/python-3100/) is recommended)
 - Poetry (dependency manager) - pip install poetry
 - OBS [Installer](https://obsproject.com/download)
   - For setting up refer to OBS installer [readme](obs%20settings/readme.md)
@@ -87,19 +87,50 @@ Once obtained, unzip OpenFace and place the folder inside the project directory.
 
 | Key     | Action          |
 | ------- | --------------- |
-| `F7`  | Start recording |
-| `F12` | Stop recording  |
+| `F7`    | Start recording |
+| `F12`   | Stop recording  |
 
 ---
 
-## installing the benchmark
+## Installing the Benchmark
 
-MSI afterburner version 4.6.6 is used to benchmark the PC's to see if the PC has any problems running the Toolkit with the game.
+MSI Afterburner version 4.6.6 is used to benchmark the PCs and verify that they can run the Toolkit alongside the game without performance issues.
 
-first install MSi afterburner 
-  - It can be donwloading form the [website](https://www.msi.com/Landing/afterburner/graphics-cards).
-  - It can be donwloading form the playSmart [google drive](https://drive.google.com/drive/u/1/my-drive)
+1. First, install MSI Afterburner.
 
+   - The installer can be downloaded from the [website](https://www.msi.com/Landing/afterburner/graphics-cards).
+   - The installer can also be downloaded from the PlaySmart [Google Drive](https://drive.google.com/drive/u/1/my-drive).
+
+2. Install it **without** Norton 360 for Gamers.
+
+3. Do install it **with** RivaTuner Statistics Server.
+
+4. After installing, go to Settings and then the Benchmark tab. Add hotkeys to start and stop the benchmark - recommended are `F8` to start and `F9` to stop.
+
+5. Make sure the `benchmark.txt` is saved to a location that is easy to find.
+
+The benchmark can be compared to the reference benchmarks taken at The Hive, which were recorded both with and without the Toolkit running during a deathmatch in Valorant.
+
+Benchmark without the toolkit:
+
+```
+VALORANT-Win64-Shipping.exe benchmark completed, 99601 frames rendered in 435.484 s
+                     Average framerate  :  228.7 FPS
+                     Minimum framerate  :    0.0 FPS
+                     Maximum framerate  :  362.2 FPS
+                     1% low framerate   :    0.0 FPS
+                     0.1% low framerate :    0.0 FPS
+```
+Benchmark with the toolkit:
+
+```
+18-06-2026, 19:16:47 VALORANT-Win64-Shipping.exe benchmark completed, 76295 frames rendered in 392.203 s
+                     Average framerate  :  194.5 FPS
+                     Minimum framerate  :    0.0 FPS
+                     Maximum framerate  :  271.7 FPS
+                     1% low framerate   :    0.0 FPS
+                     0.1% low framerate :    0.0 FPS
+```
 
 ---
 
@@ -112,7 +143,7 @@ first install MSi afterburner
 > If Poetry is not found after installation, restart your terminal and verify that Poetry is added to your system `PATH`.
 
 > [!WARNING]
-> If `poetry install` fails, confirm you are in the correct folder — it must contain `pyproject.toml`.
+> If `poetry install` fails, confirm you are in the correct folder - it must contain `pyproject.toml`.
 
 ---
 
