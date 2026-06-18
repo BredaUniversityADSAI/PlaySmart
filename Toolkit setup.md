@@ -4,11 +4,11 @@
 
 Before getting started, make sure you have the following installed and available on your system:
 
-- Python (3.9 or 3.10 is recommended) - https://www.python.org/downloads/release/python-3100/
+- Python (3.9 or [3.10](https://www.python.org/downloads/release/python-3100/) is recommended) - 
 - Poetry (dependency manager) - pip install poetry
-- OBS - https://obsproject.com/download
-  - For setting up refer to C:\\...\GitHub\PlaySmart\obs settings\readme.md
-- Tobii Eye Tracker Manager Pro - https://www.tobii.com/products/software/applications-and-developer-kits/tobii-pro-eye-tracker-manager#downloads%22
+- OBS [Installer](https://obsproject.com/download)
+  - For setting up refer to OBS installer [readme](obs%20settings/readme.md)
+- Tobii Eye Tracker Manager Pro [Installer](https://www.tobii.com/products/software/applications-and-developer-kits/tobii-pro-eye-tracker-manager#downloads%22)
 - A connected webcam
 - A connected Tobii eye tracker
 - ffmpeg
@@ -89,6 +89,17 @@ Once obtained, unzip OpenFace and place the folder inside the project directory.
 | ------- | --------------- |
 | `F7`  | Start recording |
 | `F12` | Stop recording  |
+
+---
+
+## installing the benchmark
+
+MSI afterburner version 4.6.6 is used to benchmark the PC's to see if the PC has any problems running the Toolkit with the game.
+
+first install MSi afterburner 
+  - It can be donwloading form the [website](https://www.msi.com/Landing/afterburner/graphics-cards).
+  - It can be donwloading form the playSmart [google drive](https://drive.google.com/drive/u/1/my-drive)
+
 
 ---
 
