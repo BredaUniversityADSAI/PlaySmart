@@ -238,8 +238,10 @@ def process_and_upload():
             os.replace(txt, os.path.join(audio_folder, f"{base_name}.txt"))
 
     # ---------------- VIDEO ----------------
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
     video_src = os.path.join(os.path.expanduser("~"), "Videos")
-    video_dst = os.path.join(os.path.expanduser("~"), "Documents", "research_software", "data", "video")
+    video_dst = os.path.join(BASE_DIR, "data", "video")
     os.makedirs(video_dst, exist_ok=True)
 
     latest_video = get_latest_video_any(video_src)
